@@ -1,0 +1,29 @@
+{% include "base.html" %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid text-dark text-center mt-5">
+    <div class="container">
+        <h1 class="display-6">Open Geo Database</h1>
+        <form class="d-flex justify-content-center mt-3 mb-3" role="search" method="GET" action="">
+            <input class="form-control me-2" name="search" placeholder="Enter city name..." aria-label="Search" style="max-width: 300px;">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+
+        {% if data is not None and data|length > 0 %}
+        <div class="search-results mt-4">
+            <h5>Search Results For: "{{ name }}"</h5>
+            <p>Found "{{ count }}" cities.</p>
+            <ul class="list-unstyled">
+                {% for city in data %}
+                    <li>
+                        <a href="{% url 'map' %}?city={{ city.name }}" class="text-decoration-none">{{ city.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% elif 'search' in request.GET %}
+            <p>No results found.</p>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

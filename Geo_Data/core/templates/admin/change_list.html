@@ -1,0 +1,10 @@
+{% extends "admin/change_list.html" %}
+{% load static %}
+
+{% block content %}
+<div>
+    <h2>City List</h2>
+    <a href="{{ bulk_add_button }}" class="button">Bulk Add Cities</a>
+</div>
+{{ block.super }}
+{% endblock %}
