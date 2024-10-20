@@ -38,3 +38,9 @@ def main_map(request: HttpRequest):
     map_html = map_location._repr_html_()  # type: ignore
 
     return render(request, "index.html", {"map_html": map_html})
+
+
+def list_cities(request: HttpRequest):
+    cities = City.objects.all()
+    context = {"cities": cities}
+    return render(request, "cities.html", context)

@@ -12,7 +12,7 @@ from django.urls import reverse
 from core.models import City
 
 
-class CityAdmin(admin.ModelAdmin[City]):
+class CityAdmin(admin.ModelAdmin):
     list_display = ("name", "longitutude", "latitude")
 
     def get_urls(self):
