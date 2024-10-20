@@ -14,7 +14,7 @@
         {% for city in cities %}
       <tr>
         <th scope="row">{{ forloop.counter }}</th>
-        <td>{{ city.name }}</td>
+        <td><a href="{% url 'map' %}?city={{ city.name }}" style="text-decoration: none;">{{ city.name }}</a></td>
         <td>{{ city.longitutude }}</td>
         <td>{{ city.latitude }}</td>
       </tr>

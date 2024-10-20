@@ -1,9 +1,9 @@
 from typing import Any
 
-from django.shortcuts import render
-from django.http.request import HttpRequest
-
 import folium  # type: ignore
+from django.http.request import HttpRequest
+from django.shortcuts import render
+from folium.plugins import Fullscreen  # type: ignore
 
 from core.models import City
 
@@ -32,9 +32,9 @@ def main_map(request: HttpRequest):
     else:
         return render(request, "index.html", {"error": "No city provided."})
 
-    map_location = folium.Map(location=[lat, long], zoom_start=12)
+    map_location = folium.Map(location=[lat, long], zoom_start=13)
+    Fullscreen().add_to(map_location)
     folium.Marker([lat, long], tooltip=city.name).add_to(map_location)
-    print(f"This is long and lat: {lat}, {long}")
     map_html = map_location._repr_html_()  # type: ignore
 
     return render(request, "index.html", {"map_html": map_html})

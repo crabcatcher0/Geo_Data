@@ -3,8 +3,19 @@
     {% if error %}
     <div class="alert alert-danger">{{ error }}</div>
     {% endif %}
-    <div id="map">
-    {{ map_html|safe }}
-    </div>
-{% endblock %}
 
+    <div class="dropdown" style="position: fixed; top: 20px; right: 20px; z-index: 2000;">
+        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            View Places
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Place 1</a></li>
+            <li><a class="dropdown-item" href="#">Place 2</a></li>
+            <li><a class="dropdown-item" href="#">Place 3</a></li>
+        </ul>
+    </div>
+
+        <div id="map">
+            {{ map_html|safe }}
+        </div>
+{% endblock %}

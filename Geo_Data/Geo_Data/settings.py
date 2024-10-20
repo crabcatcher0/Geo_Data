@@ -11,9 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from .secrete import SECRET_KEY
-from .secrete import NAME, USER, PASSWORD
 
+from .secrete import NAME, PASSWORD, SECRET_KEY, USER
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

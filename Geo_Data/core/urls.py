@@ -1,7 +1,6 @@
 from django.urls import path
-from .views import main_map
-from .views import home
-from .views import list_cities
+
+from .views import home, list_cities, main_map
 
 urlpatterns = [
     path("", home, name="home"),

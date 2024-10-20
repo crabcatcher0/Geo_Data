@@ -1,13 +1,11 @@
 import csv
 from typing import Any
 
-from django.contrib import admin
-from django.http.request import HttpRequest
+from django.contrib import admin, messages
 from django.http import HttpResponseRedirect
-from django.urls import path
-from django.contrib import messages
+from django.http.request import HttpRequest
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import path, reverse
 
 from core.models import City
 
